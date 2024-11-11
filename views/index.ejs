@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Film Manager</title>
+  <link rel="stylesheet" href="css/filmManager.css">
 </head>
 <body>
 <h1>Film Manager</h1>
@@ -13,6 +14,9 @@
   <li><%= film.title %> by <%= film.director %> (<%= film.year %>) <%= film.genre %>
     <form action="/film/<%= film._id %>/delete" method="POST" style="display:inline;">
       <button type="submit">Delete</button>
+    </form>
+    <form action="/film/<%= film._id %>/update" method="GET" style="display:inline;">
+      <button type="submit">Update</button>
     </form>
   </li>
   <% }) %>

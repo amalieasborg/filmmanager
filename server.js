@@ -1,7 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const filmRoutes = require('./routes/films');
+const filmRoutes = require('./routes/filmRoutes');
+const path=require('path');
 
 
 require('dotenv').config();
@@ -17,5 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/', filmRoutes);
 
+//Middleware
+app.use(express.static(path.join(__dirname, 'public')));
+
 //app.listen(3000, () => console.log('Server running on http://localhost:3000'));
 app.listen(4000, () => console.log('Server running on http://localhost:4000'));
+
